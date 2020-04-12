@@ -25,14 +25,14 @@
       helm-ff-file-name-history-use-recentf t
       helm-echo-input-in-header-line t)
 
-(setq helm-autoresize-max-height 40)
-(setq helm-autoresize-min-height 0)
-(helm-autoresize-mode 1)
+;(setq helm-autoresize-max-height 40)
+;(setq helm-autoresize-min-height 0)
+;(helm-autoresize-mode 1)
 
 (helm-mode 1)
 
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-(helm-projectile-on)
+;(projectile-global-mode)
+;(setq projectile-completion-system 'helm)
+;(helm-projectile-on)
 
 (provide 'ihelm)
