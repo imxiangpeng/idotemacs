@@ -2,6 +2,7 @@
 
 (require 'helm)
 (require 'helm-config)
+(require 'helm-projectile)
 
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
@@ -24,10 +25,14 @@
       helm-ff-file-name-history-use-recentf t
       helm-echo-input-in-header-line t)
 
-(setq helm-autoresize-max-height 0)
-(setq helm-autoresize-min-height 20)
+(setq helm-autoresize-max-height 40)
+(setq helm-autoresize-min-height 0)
 (helm-autoresize-mode 1)
 
 (helm-mode 1)
+
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 (provide 'ihelm)
