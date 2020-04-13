@@ -26,6 +26,10 @@
 ;; disable default backup
 (setq make-backup-files nil)
 
+(setq default-buffer-file-coding-system 'utf-8)
+
+(prefer-coding-system 'utf-8)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -36,7 +40,7 @@
  '(custom-safe-themes
    (quote
     ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
- '(package-selected-packages (quote (which-key magit helm-projectile helm))))
+ '(package-selected-packages (quote (htmlize which-key magit helm-projectile helm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
