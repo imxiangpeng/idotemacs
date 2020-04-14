@@ -54,4 +54,6 @@
 
 (require 'ihelm)
 
+(require 'iorg)
+
 (which-key-mode)

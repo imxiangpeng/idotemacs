@@ -34,8 +34,8 @@
 
 (helm-mode 1)
 
-;(projectile-global-mode)
-;(setq projectile-completion-system 'helm)
-;(helm-projectile-on)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 (provide 'ihelm)
