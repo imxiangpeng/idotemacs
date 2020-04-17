@@ -10,9 +10,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/iconfig") ;
 
-;; disable toolbar
-(tool-bar-mode 0)
-
 ;; show line number
 (global-linum-mode t);
 
@@ -22,9 +19,6 @@
 
 ;; hight current line
 (global-hl-line-mode 1);
-
-;; disable default backup
-(setq make-backup-files nil)
 
 (setq default-buffer-file-coding-system 'utf-8)
 
@@ -44,13 +38,30 @@
     ("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
  '(inhibit-startup-screen t)
  '(make-backup-files nil)
- '(package-selected-packages (quote (htmlize which-key magit helm-projectile helm))))
+ '(menu-bar-mode nil)
+ '(package-selected-packages (quote (htmlize which-key magit helm-projectile helm)))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq default-buffer-file-coding-system 'utf-8)
+
+(prefer-coding-system 'utf-8)
+
+(set-language-environment "UTF-8")
+
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+(defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+  (setq backup-directory-alist
+      `((".*" . ,emacs-tmp-dir)))
+  (setq auto-save-file-name-transforms
+      `((".*" ,emacs-tmp-dir t)))
+  (setq auto-save-list-file-prefix
+      emacs-tmp-dir)
 
 (load-theme 'spacemacs-light t)
 
