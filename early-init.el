@@ -1,4 +1,4 @@
-;; mxp, this is my small emacs config
+;;; Code:
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
@@ -18,21 +18,5 @@
 (when (featurep 'ns)
   (push '(ns-transparent-titlebar . t) default-frame-alist))
 
-(setq inhibit-startup-screen t)
-(setq make-backup-files nil)
-(setq menu-bar-mode nil)
- 
-
-;; add iconfig to load-path
-(push (expand-file-name "iconfig" user-emacs-directory) load-path)
-
-(require 'ipackage)
-
-(require 'icustom)
-
-(require 'iorg)
-
-(require 'imarkdown)
-
-(require 'ihelm)
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; early-init.el ends here
