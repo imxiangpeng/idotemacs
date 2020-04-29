@@ -32,8 +32,8 @@
 
 (use-package projectile
   :ensure t
-  :bind (("C-x p o" . projectile-switch-open-project)
-    ("C-x p s" . projectile-switch-project))
+  :bind (("C-c p o" . projectile-switch-open-project)
+    ("C-c p s" . projectile-switch-project))
   :config
   (projectile-global-mode)
   (setq projectile-enable-caching t))

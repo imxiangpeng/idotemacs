@@ -1,6 +1,9 @@
 ;; Load `custom-file'
 (setq custom-file (expand-file-name ".custom.el" user-emacs-directory))
 
+;; it's slow on windows
+(setq inhibit-compacting-font-caches t) ; Don’t compact font caches during GC.
+
 ;; Misc
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -16,13 +19,13 @@
 
 (set-language-environment 'utf-8)
 (set-default-coding-systems 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
-(set-file-name-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(modify-coding-system-alist 'process "*" 'utf-8)
+;(set-buffer-file-coding-system 'utf-8)
+;(set-clipboard-coding-system 'utf-8)
+;(set-file-name-coding-system 'utf-8)
+;(set-keyboard-coding-system 'utf-8)
+;(set-terminal-coding-system 'utf-8)
+;(set-selection-coding-system 'utf-8)
+;(modify-coding-system-alist 'process "*" 'utf-8)
 
 (global-linum-mode t);
 
