@@ -1,7 +1,8 @@
 (use-package org
-  :ensure nil
+  :ensure t
   :custom-face (org-ellipsis ((t (:foreground nil))))
   :preface
+  :bind ("C-c C-c" . org-capture)
   :hook ((org-mode . (lambda ()
                        "Beautify org symbols."
                        (prettify-symbols-mode 1)))
@@ -20,7 +21,8 @@
         org-catch-invisible-edits 'smart
         org-startup-indented t
         org-pretty-entities nil
-        org-hide-emphasis-markers t)
+        org-hide-emphasis-markers t
+        org-default-notes-file "~/org/notes.org")
 
   ;; Prettify UI
   (use-package org-bullets
