@@ -27,12 +27,12 @@
 ;(set-selection-coding-system 'utf-8)
 ;(modify-coding-system-alist 'process "*" 'utf-8)
 
-(global-linum-mode t);
+;;(global-linum-mode t);
 
 ;; Mouse & Smooth Scroll
 ;; Scroll one line at a time (less "jumpy" than defaults)
 (when (display-graphic-p)
-  (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))
+  (setq mouse-wheel-scroll-amount '(3 ((shift) . 5))
         mouse-wheel-progressive-speed nil))
 (setq scroll-step 1
       scroll-margin 0
