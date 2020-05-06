@@ -12,7 +12,7 @@
 (setq frame-inhibit-implied-resize t)
 
 ;; Faster to disable these here (before they've been initialized)
-(push '(menu-bar-lines . 0) default-frame-alist)
+;;(push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
 (push '(vertical-scroll-bars) default-frame-alist)
 (when (featurep 'ns)
@@ -20,7 +20,9 @@
 
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
-(setq menu-bar-mode nil)
+
+(unless (display-graphic-p)
+  (setq menu-bar-mode nil))
  
 
 ;; add iconfig to load-path
