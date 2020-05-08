@@ -49,18 +49,18 @@
   :init (setq display-time-24hr-format t
               display-time-day-and-date t))
 
-(use-package recentf
-  :ensure nil
-  :bind (("C-x C-r" . recentf-open-files))
-  :hook (after-init . recentf-mode)
-  :init (setq recentf-max-saved-items 300
-              recentf-exclude
-              '("\\.?cache" ".cask" "url" "COMMIT_EDITMSG\\'" "bookmarks"
-                "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
-                "\\.?ido\\.last$" "\\.revive$" "/G?TAGS$" "/.elfeed/"
-                "^/tmp/" "^/var/folders/.+$" ; "^/ssh:"
-                (lambda (file) (file-in-directory-p file package-user-dir))))
-  :config (push (expand-file-name recentf-save-file) recentf-exclude))
+;(use-package recentf
+;  :ensure nil
+;  :bind (("C-x C-r" . recentf-open-files))
+;  :hook (after-init . recentf-mode)
+;  :init (setq recentf-max-saved-items 300
+;              recentf-exclude
+;              '("\\.?cache" ".cask" "url" "COMMIT_EDITMSG\\'" "bookmarks"
+;                "\\.\\(?:gz\\|gif\\|svg\\|png\\|jpe?g\\|bmp\\|xpm\\)$"
+;                "\\.?ido\\.last$" "\\.revive$" "/G?TAGS$" "/.elfeed/"
+;                "^/tmp/" "^/var/folders/.+$" ; "^/ssh:"
+;                (lambda (file) (file-in-directory-p file package-user-dir))))
+;  :config (push (expand-file-name recentf-save-file) recentf-exclude))
 
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
 (defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))

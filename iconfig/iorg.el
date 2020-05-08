@@ -2,7 +2,7 @@
   :ensure t
   :custom-face (org-ellipsis ((t (:foreground nil))))
   :preface
-  :bind ("C-c C-c" . org-capture)
+  :bind ("C-c c" . org-capture)
   :hook ((org-mode . (lambda ()
                        "Beautify org symbols."
                        (prettify-symbols-mode 1)))
@@ -14,6 +14,8 @@
                               (setq show-paren-mode nil))))
   :config
   ;; To speed up startup, don't put to init section
+  (defvar org-agenda-dir "" "gtd org files location")
+  (setq-default org-agenda-dir "~/org")
   (setq org-agenda-files '("~/org")
         org-tags-column -80
         org-log-done 'time
@@ -22,7 +24,22 @@
         org-startup-indented t
         org-pretty-entities nil
         org-hide-emphasis-markers t
-        org-default-notes-file "~/org/notes.org")
+	org-agenda-file-note (expand-file-name "notes.org" org-agenda-dir)
+	org-agenda-file-gtd (expand-file-name "gtd.org" org-agenda-dir)
+	org-agenda-file-journal (expand-file-name "journal.org" org-agenda-dir)
+	org-agenda-file-code-snippet (expand-file-name "snippet.org" org-agenda-dir))
+
+  (setq org-capture-templates
+	'(("t" "Todo" entry (file+headline org-agenda-file-gtd "Tasks")
+	   "* TODO %?\n  %i\n  %a")
+	  ("n" "notes" entry (file+headline org-agenda-file-note "Quick notes")
+           "* %?\n  %i\n %U"
+           :empty-lines 1)
+	  ("s" "Code Snippet" entry
+           (file org-agenda-file-code-snippet)
+           "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+	  ("j" "Journal" entry (file+datetree org-agenda-file-journal)
+	   "* %?\nEntered on %U\n  %i\n  %a")))
 
   ;; Prettify UI
   (use-package org-bullets

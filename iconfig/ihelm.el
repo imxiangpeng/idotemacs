@@ -4,9 +4,10 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-        ("C-c h" . helm-command-prefix)
-        ("C-x b" . helm-buffers-list)
-        ("C-x C-f" . 'helm-find-files)
+         ("C-c h" . helm-command-prefix)
+         ("C-c f" . helm-recentf)
+         ("C-x b" . helm-buffers-list)
+         ("C-x C-f" . 'helm-find-files)
   :map helm-map
         ("C-i" . helm-execute-persistent-action))
   :config (setq
