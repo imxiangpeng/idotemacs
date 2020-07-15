@@ -63,12 +63,17 @@
 ;  :config (push (expand-file-name recentf-save-file) recentf-exclude))
 
 ;; Save all tempfiles in $TMPDIR/emacs$UID/
-(defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
-  (setq backup-directory-alist
-      `((".*" . ,emacs-tmp-dir)))
-  (setq auto-save-file-name-transforms
-      `((".*" ,emacs-tmp-dir t)))
-  (setq auto-save-list-file-prefix
-      emacs-tmp-dir)
+;(defconst emacs-tmp-dir (expand-file-name (format "emacs%d" (user-uid)) temporary-file-directory))
+;  (setq backup-directory-alist
+;      `((".*" . ,emacs-tmp-dir)))
+;  (setq auto-save-file-name-transforms
+;      `((".*" ,emacs-tmp-dir t)))
+;  (setq auto-save-list-file-prefix
+;      emacs-tmp-dir)
+
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(put 'dired-find-alternate-file 'disabled nil)
 
 (provide 'icustom)

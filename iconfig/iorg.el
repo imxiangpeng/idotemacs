@@ -15,8 +15,8 @@
   :config
   ;; To speed up startup, don't put to init section
   (defvar org-agenda-dir "" "gtd org files location")
-  (setq-default org-agenda-dir "~/org")
-  (setq org-agenda-files '("~/org")
+  (setq-default org-agenda-dir "~/keeping/org")
+  (setq org-agenda-files '("~/keeping/org")
         org-tags-column -80
         org-log-done 'time
         org-agenda-start-on-weekday 0
@@ -53,6 +53,16 @@
   (setq org-confirm-babel-evaluate nil
         org-src-fontify-natively t
         org-src-tab-acts-natively t)
+
+  (use-package org-download
+    :commands (org-download-enable
+               org-download-yank
+               org-download-screenshot)
+    :init
+    :hook (org-mode-hook . org-download-enable)
+    :config
+      (setq org-download-method 'attach
+        org-download-image-attr-list '("#+ATTR_HTML: :width 80% :align center")))
 
   ;; Add gfm/md backends
   (use-package ox-gfm)
